@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>  
+
+    <record model="ir.ui.view" id="view_dealer_details_form">
+      <field name="name">dealer.details.view.form</field>
+      <field name="model">dealer.details</field>
+      <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!--options="{'clickable':'1'}"-->
+                    <!--button name="action_active" string="Active" type="object"/>
+                    <button name="action_notice_period" string="Notice Period" type="object"/>
+                    <button name="action_inactive" string="Inactive" type="object"/>
+                    <field name="state" widget="statusbar" nolabel="0" statusbar_visible="info,active,notice_period,inactive"/-->
+                </header>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                    
+                        <field name="name"/>    
+                    </group>
+                    <group>
+                        <field name="phone"/>
+                        <field name="address"/>
+                    </group>
+                    <group>
+                        <field name="tag_ids" string="Product Sold">
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>  
+
+    <record model="ir.ui.view" id="view_dealer_details_kanban">
+      <field name="name">dealer.details.view.kanban</field>
+      <field name="model">dealer.details</field>
+      <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="image"/>
+                <templates>
+                    <t t-name="kanban-box">
+                         <div>
+                         <div style="width: 150px; height: 185px;">
+                            <div t-attf-class="oe_kanban_global_click">
+                             <b>
+                                <div style="font-size:20px;" class="o_kanban_image_fill_top">
+                                    <img t-att-src="kanban_image('dealer.details','image', record.id.raw_value)"
+                                        style="width:100%; height:166px;" />
+                                </div>
+                               <br/>
+                             </b>
+                            </div>
+                          </div>
+                        <div class="row">
+                                <div class="col-12">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                        </div>
+                        <div>
+                                <field name="phone"/>
+                        </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>  
+
+    <record id="action_dealer_details" model="ir.actions.act_window">
+    <field name="name">dealer details</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">dealer.details</field>
+    <field name="view_mode">tree,kanban,form</field>
+    <field name="view_id"
+               ref="view_dealer_details_kanban"/>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+     <p class="o_view_nocontent_smiling_face">
+     Create a dealer
+     </p>
+    </field>
+    </record>
+
+</odoo>
