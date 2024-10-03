@@ -1,8 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-
-SBL_HOMEO_DEMO.access_sbl_product,access_sbl_product,SBL_HOMEO_DEMO.model_sbl_product,base.group_user,1,1,1,1
-
-SBL_HOMEO_DEMO.access_dealer_details,access_dealer_details,SBL_HOMEO_DEMO.model_dealer_details,base.group_user,1,1,1,1
-SBL_HOMEO_DEMO.access_medicine_sales,access_medicine_sales,SBL_HOMEO_DEMO.model_medicine_sales,base.group_user,1,1,1,1
-
-
